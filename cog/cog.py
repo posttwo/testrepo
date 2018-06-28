@@ -11,7 +11,7 @@ class Mycog:
         """This does stuff!"""
 
         if len(after.nick) < 3:
-			await self.bot.change_nickname(after, "Censored")
+                await self.bot.change_nickname(after, "Censored")
 			
         await self.bot.say("I can do stuff!")
 
