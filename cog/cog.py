@@ -10,8 +10,8 @@ class Mycog:
     async def on_member_update(self, before, after):
         """This does stuff!"""
 
-        if len(after.nick) < 3:
-                await self.bot.change_nickname(after, "Censored")
+        if not after.nick.isalnum():
+                await self.bot.change_nickname(after, None)
 			
         await self.bot.say("I can do stuff!")
 
