@@ -10,10 +10,9 @@ class Mycog:
     async def on_member_update(self, before, after):
         """This does stuff!"""
 
-        if before.nick.startswith('!'):
-                if not after.nick.replace(' ', '').replace('!', '').isalnum():
-                        await self.bot.change_nickname(after, None)
-			
+        if not after.nick.printable():
+                await self.bot.change_nickname(after, None)
+                
         await self.bot.say("I can do stuff!")
 
 def setup(bot):
