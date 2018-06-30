@@ -66,10 +66,21 @@ class Mycog:
     
 
 def setup(bot):
+    check_file()
+    check_folder()
     bot.add_cog(Mycog(bot))
 
+def check_file():
+    if not dataIO.is_valid_json(JSON):
+        print('Creating empty %s' % JSON)
+        dataIO.save_json(JSON, {})
     
-    
+def check_folder():
+    if not os.path.exists(PATH):
+        log.debug('Creating folder: data/blocknamechange')
+        os.makedirs(PATH)
+
+        
 def compat_load(path):
     data = dataIO.load_json(path)
     for server, punishments in data.items():
