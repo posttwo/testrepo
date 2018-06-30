@@ -58,6 +58,7 @@ class Mycog:
     @checks.mod_or_permissions(manage_messages=True)
     async def punish_remove(self, ctx, member: discord.Member):
         self.json[ctx.message.server.id].pop(member.id, None)
+        await self.bot.say('{0} is now able to change his username').format(member)
         self.save()
     
     @punish.command(pass_context=True, no_pm=True, name='list')
