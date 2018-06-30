@@ -41,7 +41,8 @@ class Mycog:
                     now = time.time()
                     self.json[server.id][member.id] = { 
                        'start' : current.get('start') or now,
-                       'by': current.get('by') or ctx.message.author.id
+                       'by': current.get('by') or ctx.message.author.id,
+                       'nickname': current.get('nickname') or ctx.message.author.nick
                     }
                     msg += '{0} is now unable to change nickname'
                 
@@ -80,8 +81,8 @@ class Mycog:
         if member_data is None:
             return
 
-        if before.nick != after.nick:
-                await self.bot.change_nickname(after, before.nick)
+        if before.nick != after.nick && after.nick != member_data['nickname']:
+                await self.bot.change_nickname(after, member_data['nickname'])
                 await self.bot.say('{0} youre not allowed to change your nickname'.format(user.mention))
                 
         await self.bot.say("I can do stuff!")
