@@ -60,18 +60,18 @@ class Mycog:
         for member_id, data in self.json.get(server.id, {}).items():
             if not member_id.isdigit():
                 continue
-            msg = ('{0} added to list by {1} on {2}')
+            msg = ('{} added to list by {} on {}')
             msg.format(getmname(member_id, server), getmname(data['by'], server), data['start'])
             await self.bot.say(msg)
         
         
-    async def on_member_update(self, before, after):
+    """async def on_member_update(self, before, after):
         """This does stuff!"""
 
         if after.nick.contains('឵឵ ឵឵'):
                 await self.bot.change_nickname(after, None)
                 
-        await self.bot.say("I can do stuff!")
+        await self.bot.say("I can do stuff!")"""
         
     
 
