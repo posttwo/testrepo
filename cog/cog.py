@@ -51,7 +51,20 @@ class Mycog:
     
             else:
                 await self.bot.send_cmd_help(ctx)
-                
+    
+    
+    @punish.command(pass_context=True, no_pm=True, name='list')
+    async def punish_list(self, ctx):
+        server = ctx.message.server
+        
+        for member_id, data in self.json.get(server.id, {}).items():
+            if not member_id.isdigit():
+                continue
+            msg = ("{0} added to list by {1} on {2}")
+            msg.format(getmname(member_id, server), getmname(data['by'], server), start)
+            await self.bot.say(msg)
+        
+        
     async def on_member_update(self, before, after):
         """This does stuff!"""
 
@@ -77,6 +90,13 @@ def check_folder():
         print('Creating folder: data/blocknamechange')
         os.makedirs(PATH)
 
+def getmname(mid, server):
+    member = discord.utils.get(server.members, id=mid)
+
+    if member:
+        return str(member)
+    else:
+        return '(absent user #%s)' % mid
         
 def compat_load(path):
     data = dataIO.load_json(path)
@@ -89,6 +109,5 @@ def compat_load(path):
             by = pdata.pop('givenby', None)
             by = by if by else pdata.pop('by', None)
             pdata['by'] = by
-            pdata['reason'] = pdata.pop('reason', None)
 
     return data
