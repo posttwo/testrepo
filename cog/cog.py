@@ -5,6 +5,7 @@ from .utils.dataIO import dataIO
 from .utils import checks
 from .utils.chat_formatting import pagify, box, warning, error, info, bold
 import os
+import time
 
 PATH = 'data/blocknamechange/'
 JSON = PATH + 'settings.json'
@@ -37,6 +38,7 @@ class Mycog:
                 if member.id in self.json[server.id]:
                     msg =+ '{0} is already unable to change nickname'
                 else:
+                    now = time.time()
                     self.json[server.id][member.id] = { 
                        'start' : current.get('start') or now,
                        'by': current.get('by') or ctx.message.author.id
