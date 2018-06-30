@@ -14,12 +14,6 @@ class Mycog:
     def __init__(self, bot):
         self.bot = bot
         self.json = compat_load(JSON)
-
-        try:
-            self.analytics = CogAnalytics(self)
-        except Exception as error:
-            self.bot.logger.exception(error)
-            self.analytics = None
      
     def __unload(self):
         self.save()
