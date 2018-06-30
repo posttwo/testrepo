@@ -66,7 +66,6 @@ class Mycog:
         
         
     """async def on_member_update(self, before, after):
-        """This does stuff!"""
 
         if after.nick.contains('឵឵ ឵឵'):
                 await self.bot.change_nickname(after, None)
