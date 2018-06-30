@@ -83,7 +83,7 @@ class Mycog:
 
         if before.nick != after.nick and after.nick != member_data['nickname']:
                 await self.bot.change_nickname(after, member_data['nickname'])
-                await self.bot.send_message(before.server, '{0} youre not allowed to change your nickname'.format(after.mention))
+                await self.bot.send_message('156486067283951616', '{0} youre not allowed to change your nickname'.format(after.mention))
                 
 
 def setup(bot):
