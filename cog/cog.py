@@ -66,8 +66,8 @@ class Mycog:
     
 
 def setup(bot):
-    check_file()
     check_folder()
+    check_file()
     bot.add_cog(Mycog(bot))
 
 def check_file():
