@@ -61,7 +61,7 @@ class Mycog:
             if not member_id.isdigit():
                 continue
             msg = ('{} added to list by {} on {}')
-            msg.format(getmname(member_id, server), getmname(data['by'], server), data['start'])
+            msg.format(member_id, data['by'], data['start'])
             await self.bot.say(msg)
         
         
