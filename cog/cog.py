@@ -81,7 +81,7 @@ class Mycog:
         if member_data is None:
             return
 
-        if before.nick != after.nick && after.nick != member_data['nickname']:
+        if before.nick != after.nick and after.nick != member_data['nickname']:
                 await self.bot.change_nickname(after, member_data['nickname'])
                 await self.bot.say('{0} youre not allowed to change your nickname'.format(after.mention))
                 
