@@ -54,7 +54,7 @@ class Mycog:
                 await self.bot.send_cmd_help(ctx)
     
     
-    @commands.group(pass_context=True, no_pm=True, name='remove')
+    @punish.command(pass_context=True, no_pm=True, name='remove')
     @checks.mod_or_permissions(manage_messages=True)
     async def punish_remove(self, ctx, member: discord.Member):
         self.json[ctx.message.server.id].pop(member.id, None)
