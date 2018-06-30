@@ -78,7 +78,7 @@ def check_file():
     
 def check_folder():
     if not os.path.exists(PATH):
-        log.debug('Creating folder: data/blocknamechange')
+        print('Creating folder: data/blocknamechange')
         os.makedirs(PATH)
 
         
