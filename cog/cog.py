@@ -36,14 +36,14 @@ class Mycog:
                 current = self.json[server.id].get(member.id, {})
                 
                 if member.id in self.json[server.id]:
-                    msg =+ '{0} is already unable to change nickname'
+                    msg += '{0} is already unable to change nickname'
                 else:
                     now = time.time()
                     self.json[server.id][member.id] = { 
                        'start' : current.get('start') or now,
                        'by': current.get('by') or ctx.message.author.id
                     }
-                    msg =+ '{0} is now unable to change nickname'
+                    msg += '{0} is now unable to change nickname'
                 
                 msg = msg.format(member)
                 
