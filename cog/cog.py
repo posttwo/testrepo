@@ -73,12 +73,18 @@ class Mycog:
             await self.bot.say(msg)
         
         
-    """async def on_member_update(self, before, after):
+    async def on_member_update(self, before, after):
+        sid = before.server.id
+        data = self.json.get(sid, {})
+        member_data = data.get(before.id)
+        if member_data is None:
+            return
 
-        if after.nick.contains('឵឵ ឵឵'):
-                await self.bot.change_nickname(after, None)
+        if before.nick != after.nick:
+                await self.bot.change_nickname(after, before.nick)
+                await self.bot.say('{0} youre not allowed to change your nickname'.format(user.mention))
                 
-        await self.bot.say("I can do stuff!")"""
+        await self.bot.say("I can do stuff!")
         
     
 
