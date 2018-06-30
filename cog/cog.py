@@ -4,6 +4,7 @@ from discord.ext import commands
 from .utils.dataIO import dataIO
 from .utils import checks
 from .utils.chat_formatting import pagify, box, warning, error, info, bold
+import os
 
 PATH = 'data/blocknamechange/'
 JSON = PATH + 'settings.json'
