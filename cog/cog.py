@@ -85,9 +85,6 @@ class Mycog:
                 await self.bot.change_nickname(after, member_data['nickname'])
                 await self.bot.send_message(before.server, '{0} youre not allowed to change your nickname'.format(after.mention))
                 
-        await self.bot.say("I can do stuff!")
-        
-    
 
 def setup(bot):
     check_folder()
