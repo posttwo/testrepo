@@ -42,7 +42,7 @@ class Mycog:
                     self.json[server.id][member.id] = { 
                        'start' : current.get('start') or now,
                        'by': current.get('by') or ctx.message.author.id,
-                       'nickname': current.get('nickname') or ctx.message.author.nick
+                       'nickname': current.get('nickname') or member.nick
                     }
                     msg += '{0} is now unable to change nickname'
                 
