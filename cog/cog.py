@@ -26,6 +26,7 @@ class Mycog:
     @commands.group(pass_context=True, invoke_without_command=True, no_pm=True)
     @checks.mod_or_permissions(manage_messages=True)
     async def punish(self, ctx, member: discord.Member):
+        """Stops user from having his nickname changed by ANYONE"""
         if ctx.invoked_subcommand is None:
             if member:
                 msg = ''
@@ -58,12 +59,14 @@ class Mycog:
     @punish.command(pass_context=True, no_pm=True, name='remove')
     @checks.mod_or_permissions(manage_messages=True)
     async def punish_remove(self, ctx, member: discord.Member):
+        """Allows user to have nickname changed"""
         self.json[ctx.message.server.id].pop(member.id, None)
         await self.bot.say('{0} is now able to change his username'.format(member))
         self.save()
     
     @punish.command(pass_context=True, no_pm=True, name='list')
     async def punish_list(self, ctx):
+        """Lists users that are blocked from changing their nickname"""
         server = ctx.message.server
         
         for member_id, data in self.json.get(server.id, {}).items():
